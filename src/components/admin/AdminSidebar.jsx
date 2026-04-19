@@ -11,6 +11,7 @@ const NAV_ITEMS = [
   { label: 'Team Members', path: '/admin/team', icon: Users },
   { label: 'Hiring', path: '/admin/hiring', icon: Briefcase },
   { label: 'Messages', path: '/admin/messages', icon: MessageSquare },
+  { label: 'Testimonials', path: '/admin/testimonials', icon: Play },
 ];
 
 export default function AdminSidebar() {

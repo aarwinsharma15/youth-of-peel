@@ -1,6 +1,8 @@
 import React from 'react';
-import { CheckCircle, Users, Briefcase, Globe, Mic, Clock, Star } from 'lucide-react';
+import { CheckCircle, Users, Briefcase, Globe, Mic, Clock, Star, Play, Video } from 'lucide-react';
 import SectionReveal from '../components/SectionReveal';
+import { supabase } from '@/api/supabaseClient';
+import { useQuery } from '@tanstack/react-query';
 
 const BENEFITS = [
   { icon: Clock, title: 'Volunteer Hours', desc: 'Earn OSSD-credited volunteer hours through our programs and events.' },
@@ -12,10 +14,34 @@ const BENEFITS = [
 ];
 
 export default function Membership() {
+  const { data: heroImage } = useQuery({
+    queryKey: ['siteImages', 'membership_hero'],
+    queryFn: async () => {
+      const { data } = await supabase.from('siteimage').select('image_url').eq('section', 'hero').order('order', { ascending: true }).limit(1);
+      return data?.[0]?.image_url;
+    },
+    initialData: null,
+  });
+
+  const { data: testimonials } = useQuery({
+    queryKey: ['testimonials'],
+    queryFn: async () => {
+      const { data } = await supabase.from('testimonial').select('*').order('order', { ascending: true }).limit(20);
+      return data || [];
+    },
+    initialData: [],
+  });
+
   return (
     <div className="min-h-screen bg-parchment">
       {/* Hero */}
       <section className="bg-ink pt-32 pb-20 relative overflow-hidden">
+        {heroImage && (
+          <div className="absolute inset-0">
+            <img src={heroImage} alt="" className="w-full h-full object-cover opacity-20" />
+            <div className="absolute inset-0 bg-gradient-to-r from-ink via-ink/60 to-transparent" />
+          </div>
+        )}
         <div className="absolute left-0 top-0 bottom-0 w-1.5 bg-crimson" />
         <div className="absolute right-0 top-0 bottom-0 pointer-events-none overflow-hidden select-none">
           <p className="font-display text-[clamp(6rem,18vw,16rem)] text-white/[0.03] leading-none tracking-widest translate-x-1/4">JOIN</p>
@@ -59,6 +85,51 @@ export default function Membership() {
           </div>
         </div>
       </section>
+
+      {/* Testimonials */}
+      {testimonials.length > 0 && (
+        <section className="py-20 md:py-28 bg-white/30">
+          <div className="max-w-7xl mx-auto px-4 sm:px-8 lg:px-16">
+            <SectionReveal>
+              <h2 className="font-display text-[clamp(2.5rem,7vw,5.5rem)] text-ink leading-none tracking-wide text-center mb-16 italic">WHAT OUR MEMBERS SAY</h2>
+            </SectionReveal>
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+              {testimonials.map((t, i) => (
+                <SectionReveal key={t.id} delay={i * 0.1}>
+                  <div className="bg-white p-6 shadow-sm border border-ink/5 relative group h-full flex flex-col">
+                    <div className="aspect-video bg-ink mb-6 relative overflow-hidden group/video">
+                      {t.thumbnail_url ? (
+                        <img src={t.thumbnail_url} alt={t.name} className="w-full h-full object-cover opacity-70 group-hover/video:scale-105 transition-transform duration-700" />
+                      ) : (
+                        <div className="w-full h-full flex items-center justify-center text-white/10 uppercase font-heading text-[10px] tracking-widest">
+                          <Video size={32} strokeWidth={1.5} />
+                        </div>
+                      )}
+                      <a 
+                        href={t.video_url} 
+                        target="_blank" 
+                        rel="noopener noreferrer" 
+                        className="absolute inset-0 flex items-center justify-center bg-ink/20 group-hover/video:bg-ink/0 transition-colors"
+                      >
+                        <div className="w-12 h-12 rounded-full border border-white/40 flex items-center justify-center group-hover/video:scale-110 group-hover/video:bg-white group-hover/video:text-ink transition-all">
+                          <Play size={20} className="ml-1 fill-current" />
+                        </div>
+                      </a>
+                    </div>
+                    <div className="flex-1">
+                      <p className="text-ink/60 font-body text-sm italic mb-6 leading-relaxed">"{t.quote}"</p>
+                    </div>
+                    <div className="mt-auto pt-6 border-t border-ink/5">
+                      <h4 className="font-heading font-bold text-ink text-sm">{t.name}</h4>
+                      <p className="text-crimson font-heading font-semibold text-[10px] uppercase tracking-wider">{t.role}</p>
+                    </div>
+                  </div>
+                </SectionReveal>
+              ))}
+            </div>
+          </div>
+        </section>
+      )}
 
       {/* Apply */}
       <section className="bg-ink py-20 md:py-28">

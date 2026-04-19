@@ -26,6 +26,7 @@ import AdminCampaigns from './pages/admin/AdminCampaigns';
 import AdminTeam from './pages/admin/AdminTeam';
 import AdminHiring from './pages/admin/AdminHiring';
 import AdminMessages from './pages/admin/AdminMessages';
+import AdminTestimonials from './pages/admin/AdminTestimonials';
 
 // Layout
 import PublicLayout from './components/PublicLayout';
@@ -79,6 +80,7 @@ const AuthenticatedApp = () => {
         <Route path="team" element={<AdminTeam />} />
         <Route path="hiring" element={<AdminHiring />} />
         <Route path="messages" element={<AdminMessages />} />
+        <Route path="testimonials" element={<AdminTestimonials />} />
       </Route>
 
       <Route path="*" element={<PageNotFound />} />

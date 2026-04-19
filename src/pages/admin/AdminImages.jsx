@@ -9,7 +9,7 @@ import ImageUploader from '../../components/admin/ImageUploader';
 import { toast } from 'sonner';
 
 const EMPTY_FORM = { section: 'in_action', image_url: '', caption: '', badge: '', order: 0 };
-const SECTIONS = ['hero', 'in_action', 'about', 'general'];
+const SECTIONS = ['hero', 'in_action', 'about'];
 
 export default function AdminImages() {
   const queryClient = useQueryClient();
@@ -39,6 +39,10 @@ export default function AdminImages() {
       setForm(EMPTY_FORM);
       toast.success('Image added');
     },
+    onError: (err) => {
+      console.error('Error saving image:', err);
+      toast.error('Failed to save image: ' + (err.message || 'Unknown error'));
+    }
   });
 
   const updateMutation = useMutation({
@@ -52,6 +56,10 @@ export default function AdminImages() {
       setEditing(prev => { const n = { ...prev }; delete n[id]; return n; });
       toast.success('Image updated');
     },
+    onError: (err) => {
+      console.error('Error updating image:', err);
+      toast.error('Update failed: ' + (err.message || 'Unknown error'));
+    }
   });
 
   const deleteMutation = useMutation({
