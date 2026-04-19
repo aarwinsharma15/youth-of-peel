@@ -1,0 +1,37 @@
+{
+  "name": "SiteImage",
+  "type": "object",
+  "properties": {
+    "section": {
+      "type": "string",
+      "enum": [
+        "hero",
+        "in_action",
+        "about",
+        "general"
+      ],
+      "description": "Which section this image belongs to"
+    },
+    "image_url": {
+      "type": "string",
+      "description": "The image URL"
+    },
+    "caption": {
+      "type": "string",
+      "description": "Optional caption"
+    },
+    "badge": {
+      "type": "string",
+      "description": "Badge label like Advocacy, Mentorship"
+    },
+    "order": {
+      "type": "number",
+      "description": "Display order",
+      "default": 0
+    }
+  },
+  "required": [
+    "section",
+    "image_url"
+  ]
+}

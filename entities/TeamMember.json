@@ -1,0 +1,31 @@
+{
+  "name": "TeamMember",
+  "type": "object",
+  "properties": {
+    "name": {
+      "type": "string",
+      "description": "Full name"
+    },
+    "role": {
+      "type": "string",
+      "description": "Position/title in the organization"
+    },
+    "bio": {
+      "type": "string",
+      "description": "Short bio"
+    },
+    "image_url": {
+      "type": "string",
+      "description": "Profile photo"
+    },
+    "order": {
+      "type": "number",
+      "description": "Display order",
+      "default": 0
+    }
+  },
+  "required": [
+    "name",
+    "role"
+  ]
+}

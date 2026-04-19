@@ -1,0 +1,30 @@
+{
+  "name": "Program",
+  "type": "object",
+  "properties": {
+    "title": {
+      "type": "string",
+      "description": "Name of the program"
+    },
+    "description": {
+      "type": "string",
+      "description": "Short description of the program"
+    },
+    "link": {
+      "type": "string",
+      "description": "External link for the program"
+    },
+    "image_url": {
+      "type": "string",
+      "description": "Image for the program card"
+    },
+    "order": {
+      "type": "number",
+      "description": "Display order",
+      "default": 0
+    }
+  },
+  "required": [
+    "title"
+  ]
+}

@@ -1,0 +1,35 @@
+{
+  "name": "HiringPosition",
+  "type": "object",
+  "properties": {
+    "title": {
+      "type": "string",
+      "description": "Position title"
+    },
+    "description": {
+      "type": "string",
+      "description": "Role description"
+    },
+    "requirements": {
+      "type": "string",
+      "description": "Requirements for the role"
+    },
+    "application_link": {
+      "type": "string",
+      "description": "Link to apply"
+    },
+    "is_open": {
+      "type": "boolean",
+      "default": true,
+      "description": "Whether position is currently open"
+    },
+    "order": {
+      "type": "number",
+      "description": "Display order",
+      "default": 0
+    }
+  },
+  "required": [
+    "title"
+  ]
+}

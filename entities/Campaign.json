@@ -1,0 +1,38 @@
+{
+  "name": "Campaign",
+  "type": "object",
+  "properties": {
+    "title": {
+      "type": "string",
+      "description": "Title of the campaign or work"
+    },
+    "description": {
+      "type": "string",
+      "description": "Short description"
+    },
+    "long_description": {
+      "type": "string",
+      "description": "Detailed description of the work"
+    },
+    "link": {
+      "type": "string",
+      "description": "External link"
+    },
+    "pdf_url": {
+      "type": "string",
+      "description": "PDF document URL"
+    },
+    "image_url": {
+      "type": "string",
+      "description": "Cover image"
+    },
+    "order": {
+      "type": "number",
+      "description": "Display order",
+      "default": 0
+    }
+  },
+  "required": [
+    "title"
+  ]
+}
