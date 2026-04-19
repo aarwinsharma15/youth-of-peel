@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link, useLocation } from 'react-router-dom';
-import { LayoutDashboard, Image, FolderOpen, Briefcase, Users, FileText, MessageSquare, LogOut } from 'lucide-react';
+import { LayoutDashboard, Image, FolderOpen, Briefcase, Users, FileText, MessageSquare, LogOut, Play } from 'lucide-react';
 import { useAuth } from '@/lib/AuthContext';
 
 const NAV_ITEMS = [
