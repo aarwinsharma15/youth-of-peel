@@ -24,12 +24,33 @@ export default function About() {
     initialData: [],
   });
 
+  const { data: aboutImages } = useQuery({
+    queryKey: ['siteImages', 'about'],
+    queryFn: async () => {
+      const { data } = await supabase.from('siteimage').select('*').eq('section', 'about').order('order', { ascending: true });
+      return data || [];
+    },
+    initialData: [],
+  });
+
+  const { data: generalImages } = useQuery({
+    queryKey: ['siteImages', 'general'],
+    queryFn: async () => {
+      const { data } = await supabase.from('siteimage').select('*').eq('section', 'general').order('order', { ascending: true });
+      return data || [];
+    },
+    initialData: [],
+  });
+
+  const heroImage = aboutImages?.[0]?.image_url || ABOUT_IMAGE;
+  const storyImage = aboutImages?.[1]?.image_url;
+
   return (
     <div className="min-h-screen bg-parchment">
       {/* Hero */}
       <section className="relative pt-32 pb-24 bg-ink overflow-hidden">
         <div className="absolute inset-0">
-          <img src={ABOUT_IMAGE} alt="Youth group" className="w-full h-full object-cover opacity-25 object-top" />
+          <img src={heroImage} alt="Youth group" className="w-full h-full object-cover opacity-25 object-top" />
           <div className="absolute inset-0 bg-gradient-to-b from-ink via-ink/80 to-ink" />
         </div>
         <div className="absolute left-0 top-0 bottom-0 w-1.5 bg-crimson" />
@@ -50,13 +71,23 @@ export default function About() {
       <section className="py-20 md:py-28 bg-parchment">
         <div className="max-w-6xl mx-auto px-4 sm:px-8 lg:px-16">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-start">
-            <SectionReveal>
-              <div className="w-12 h-1 bg-crimson mb-6" />
-              <p className="font-heading font-bold text-ember text-xs uppercase tracking-[0.3em] mb-4">Our Story</p>
-              <h2 className="font-display text-[clamp(2rem,5vw,4rem)] text-ink leading-none tracking-wide">
-                BORN FROM A GAP.<br />BUILT TO CLOSE IT.
-              </h2>
-            </SectionReveal>
+            <div className="space-y-12">
+              <SectionReveal>
+                <div className="w-12 h-1 bg-crimson mb-6" />
+                <p className="font-heading font-bold text-ember text-xs uppercase tracking-[0.3em] mb-4">Our Story</p>
+                <h2 className="font-display text-[clamp(2rem,5vw,4rem)] text-ink leading-none tracking-wide">
+                  BORN FROM A GAP.<br />BUILT TO CLOSE IT.
+                </h2>
+              </SectionReveal>
+
+              {storyImage && (
+                <SectionReveal delay={0.1}>
+                  <div className="aspect-[4/5] overflow-hidden bg-ink/5">
+                    <img src={storyImage} alt="About our story" className="w-full h-full object-cover" />
+                  </div>
+                </SectionReveal>
+              )}
+            </div>
             <SectionReveal delay={0.15}>
               <div className="space-y-5 text-ink/60 font-body text-base leading-relaxed">
                 <p>Youth of Peel was founded when a group of young people in the region realized that despite their passion for civic engagement, there was no real infrastructure to support them. They saw a gap between youth desire to lead and the opportunities available to make it happen.</p>
@@ -111,6 +142,31 @@ export default function About() {
                     </div>
                     <p className="text-ink font-heading font-bold text-sm">{m.name}</p>
                     <p className="text-crimson text-xs font-body">{m.role}</p>
+                  </div>
+                </SectionReveal>
+              ))}
+            </div>
+          </div>
+        </section>
+      )}
+
+      {/* Community Gallery */}
+      {generalImages.length > 0 && (
+        <section className="py-20 md:py-28 bg-white/50">
+          <div className="max-w-7xl mx-auto px-4 sm:px-8 lg:px-16">
+            <SectionReveal>
+              <h2 className="font-display text-[clamp(2.5rem,7vw,5.5rem)] text-ink leading-none tracking-wide mb-16 italic">COMMUNITY HIGHLIGHTS</h2>
+            </SectionReveal>
+            <div className="columns-1 sm:columns-2 lg:columns-3 gap-6 space-y-6">
+              {generalImages.map((img, i) => (
+                <SectionReveal key={img.id} delay={i * 0.05}>
+                  <div className="relative group overflow-hidden">
+                    <img src={img.image_url} alt={img.caption || 'Community'} className="w-full h-auto object-cover group-hover:scale-105 transition-transform duration-700" />
+                    {img.caption && (
+                      <div className="absolute inset-0 bg-ink/60 opacity-0 group-hover:opacity-100 transition-opacity flex items-end p-6">
+                        <p className="text-white font-heading font-bold text-xs uppercase tracking-widest">{img.caption}</p>
+                      </div>
+                    )}
                   </div>
                 </SectionReveal>
               ))}

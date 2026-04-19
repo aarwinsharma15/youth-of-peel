@@ -3,16 +3,32 @@ import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { ArrowRight } from 'lucide-react';
 import MarqueeBanner from '../MarqueeBanner';
+import { supabase } from '@/api/supabaseClient';
+import { useQuery } from '@tanstack/react-query';
 
 const HERO_IMAGE = 'https://images.unsplash.com/photo-1529156069898-49953e39b3ac?w=1800&auto=format&fit=crop&q=80';
 
 export default function HeroSection() {
+  const { data: heroImage } = useQuery({
+    queryKey: ['siteImages', 'hero'],
+    queryFn: async () => {
+      const { data } = await supabase
+        .from('siteimage')
+        .select('image_url')
+        .eq('section', 'hero')
+        .order('order', { ascending: true })
+        .limit(1);
+      return data?.[0]?.image_url || HERO_IMAGE;
+    },
+    initialData: HERO_IMAGE,
+  });
+
   return (
     <section className="relative min-h-screen flex flex-col bg-ink overflow-hidden">
       {/* Background photo */}
       <div className="absolute inset-0">
         <img
-          src={HERO_IMAGE}
+          src={heroImage}
           alt="Youth leaders"
           className="w-full h-full object-cover object-top"
         />
