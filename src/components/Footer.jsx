@@ -2,6 +2,8 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { Instagram, Linkedin, Mail } from 'lucide-react';
 
+import logoFull from '../assets/logo-full.png';
+
 const FOOTER_NAV = [
   { label: 'Programs', path: '/programs' },
   { label: 'Membership', path: '/membership' },
@@ -19,9 +21,11 @@ export default function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-3 gap-12">
           {/* Brand */}
           <div>
-            <h2 className="font-heading text-3xl font-bold tracking-tight mb-4">
-              YOUTH<br />OF PEEL
-            </h2>
+            <img 
+              src={logoFull} 
+              alt="Youth of Peel" 
+              className="h-16 w-auto mb-6 opacity-90 hover:opacity-100 transition-opacity"
+            />
             <p className="text-white/60 text-sm leading-relaxed max-w-xs">
               A youth-led nonprofit organization dedicated to unifying young people across the Region of Peel.
             </p>
