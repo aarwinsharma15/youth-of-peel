@@ -52,7 +52,7 @@ export default function AdminLayout() {
       <div className="flex-1 flex flex-col min-h-screen overflow-hidden">
         {/* Mobile topbar */}
         <div className="lg:hidden flex items-center justify-between px-4 py-4 border-b border-white/10 bg-navy">
-          <span className="font-heading text-white font-bold">YOP Admin</span>
+          <span className="font-heading text-white font-bold">YPR Admin</span>
           <button onClick={() => setMobileOpen(!mobileOpen)} className="text-white/60 hover:text-white p-1">
             {mobileOpen ? <X size={20} /> : <Menu size={20} />}
           </button>

@@ -4,6 +4,7 @@ import { useQuery } from '@tanstack/react-query';
 import { Link } from 'react-router-dom';
 import { ExternalLink, ArrowRight } from 'lucide-react';
 import SectionReveal from '../components/SectionReveal';
+import SEO from '../components/SEO';
 
 export default function Programs() {
   const { data: programs, isLoading } = useQuery({
@@ -17,6 +18,11 @@ export default function Programs() {
 
   return (
     <div className="min-h-screen bg-parchment">
+      <SEO 
+        title="Our Programs" 
+        description="Explore the hands-on programs offered by Youth of Peel Region (YPR). Designed to give youth in Brampton, Mississauga, and Caledon real skills, connections, and impact through leadership and community development." 
+        url="/programs" 
+      />
       {/* Hero */}
       <section className="bg-ink pt-32 pb-20 relative overflow-hidden">
         <div className="absolute left-0 top-0 bottom-0 w-1.5 bg-crimson" />

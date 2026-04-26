@@ -21,7 +21,7 @@ export default function AdminSidebar() {
   return (
     <aside className="w-64 bg-navy min-h-screen flex flex-col">
       <div className="p-6 border-b border-white/10">
-        <Link to="/" className="font-heading text-white font-bold text-lg">YOP Admin</Link>
+        <Link to="/" className="font-heading text-white font-bold text-lg">YPR Admin</Link>
       </div>
       <nav className="flex-1 p-4 space-y-1">
         {NAV_ITEMS.map((item) => {

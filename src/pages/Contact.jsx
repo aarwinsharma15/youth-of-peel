@@ -6,6 +6,7 @@ import { Input } from '@/components/ui/input';
 import { Textarea } from '@/components/ui/textarea';
 import SectionReveal from '../components/SectionReveal';
 import { motion, AnimatePresence } from 'framer-motion';
+import SEO from '../components/SEO';
 
 export default function Contact() {
   const [form, setForm] = useState({ name: '', email: '', subject: '', message: '' });
@@ -23,6 +24,11 @@ export default function Contact() {
 
   return (
     <div className="min-h-screen bg-parchment">
+      <SEO 
+        title="Contact Us" 
+        description="Get in touch with Youth of Peel Region (YPR). Whether you have questions, want to partner, or just want to connect, our team is here to listen. Reach out from Brampton, Mississauga, or Caledon." 
+        url="/contact" 
+      />
       {/* Hero */}
       <section className="bg-ink pt-32 pb-20 relative overflow-hidden">
         <div className="absolute left-0 top-0 bottom-0 w-1.5 bg-crimson" />

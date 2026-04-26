@@ -77,7 +77,7 @@ export default function InActionSection() {
             <div className="relative w-72 md:w-[420px] aspect-[4/3] overflow-hidden group">
               <img
                 src={img.image_url}
-                alt={img.caption || 'Youth of Peel in action'}
+                alt={img.caption || 'Youth of Peel Region in action'}
                 className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-ink/80 via-transparent to-transparent" />

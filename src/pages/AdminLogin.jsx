@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { supabase } from '@/api/supabaseClient';
 import { motion } from 'framer-motion';
 import { Lock, Mail, Eye, EyeOff } from 'lucide-react';
+import SEO from '../components/SEO';
 
 export default function AdminLogin() {
   const [email, setEmail] = useState('');
@@ -49,6 +50,7 @@ export default function AdminLogin() {
 
   return (
     <div className="min-h-screen bg-ink flex items-center justify-center px-4">
+      <SEO title="Admin Login" />
       <motion.div
         initial={{ opacity: 0, y: 30 }}
         animate={{ opacity: 1, y: 0 }}
@@ -58,9 +60,9 @@ export default function AdminLogin() {
         {/* Logo */}
         <div className="flex items-center gap-3 mb-10">
           <div className="w-8 h-8 bg-crimson flex items-center justify-center">
-            <span className="font-display text-white text-xs tracking-wider">YP</span>
+            <span className="font-display text-white text-[10px] tracking-wider">YPR</span>
           </div>
-          <span className="font-display text-white tracking-widest text-lg">YOUTH OF PEEL</span>
+          <span className="font-display text-white tracking-widest text-lg">YOUTH OF PEEL REGION</span>
         </div>
 
         <h1 className="font-display text-5xl text-white tracking-wide mb-1">ADMIN</h1>

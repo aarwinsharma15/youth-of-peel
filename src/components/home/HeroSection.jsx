@@ -65,7 +65,7 @@ export default function HeroSection() {
           transition={{ duration: 0.6, delay: 0.4 }}
           className="text-white/60 font-body text-base sm:text-lg max-w-xl mb-10 leading-relaxed"
         >
-          Youth of Peel is a youth-led nonprofit unifying young people across the Region of Peel and closing the opportunity gap they all face.
+          Youth of Peel Region is a youth-led nonprofit unifying young people across the Region of Peel and closing the opportunity gap they all face.
         </motion.p>
 
         <motion.div

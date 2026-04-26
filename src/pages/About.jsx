@@ -4,6 +4,7 @@ import { useQuery } from '@tanstack/react-query';
 import SectionReveal from '../components/SectionReveal';
 import { Link } from 'react-router-dom';
 import { ArrowRight } from 'lucide-react';
+import SEO from '../components/SEO';
 
 // Real stock photo — diverse youth group
 const ABOUT_IMAGE = 'https://images.unsplash.com/photo-1529156069898-49953e39b3ac?w=1400&auto=format&fit=crop&q=80';
@@ -38,6 +39,11 @@ export default function About() {
 
   return (
     <div className="min-h-screen bg-parchment">
+      <SEO 
+        title="About Us" 
+        description="Learn about the Youth of Peel Region (YPR), a youth-led organization founded to close the opportunity gap. Discover our story, our core values of being youth-led, community-first, and action-oriented, and meet the dedicated team driving regional reform in Peel." 
+        url="/about" 
+      />
       {/* Hero */}
       <section className="relative pt-32 pb-24 bg-ink overflow-hidden">
         <div className="absolute inset-0">
@@ -52,7 +58,7 @@ export default function About() {
               ABOUT US
             </h1>
             <p className="text-white/50 font-body text-base md:text-lg max-w-2xl leading-relaxed">
-              Founded by youth, for youth — we exist because young people in Peel deserve more than a seat at the table. They deserve to build the table.
+              Founded for youth, by youth.
             </p>
           </SectionReveal>
         </div>
@@ -81,9 +87,10 @@ export default function About() {
             </div>
             <SectionReveal delay={0.15}>
               <div className="space-y-5 text-ink/60 font-body text-base leading-relaxed">
-                <p>Youth of Peel was founded when a group of young people in the region realized that despite their passion for civic engagement, there was no real infrastructure to support them. They saw a gap between youth desire to lead and the opportunities available to make it happen.</p>
-                <p>What started as informal conversations turned into a structured organization — one that now boasts over 20 staff members, 100+ actively engaged youth, and a presence across every major municipality in the Region of Peel.</p>
-                <p>We've appeared before regional council, developed policy briefs, launched mentorship programs, and built one of the most active youth civic networks in Ontario.</p>
+                <p>Youth of Peel Region was founded in 2024 when a group of young people in the region realized that, despite their passion for civic engagement and their love for their community, there was no real infrastructure to support them. They saw a gap between youth's desire to lead and the opportunities that were available to make it happen.</p>
+                <p>What started as an informal conversation turned into a team that now boasts over 20 staff members and 100 actively engaged youth, and a major presence across every municipality in the Region of Peel.</p>
+                <p>We've appeared before the regional council, developed policy briefs, launched mentorship programs, and built one of the most active youth civic networks in Ontario.</p>
+                <p>In just two years, we've proven that when young people are given the space and structure to lead, they show up — and they deliver.</p>
                 <p className="font-heading font-bold text-ink text-lg">We are the bridge between youth passion and civic action. And we're just getting started.</p>
               </div>
             </SectionReveal>

@@ -1,6 +1,7 @@
 import React from 'react';
 import { Mail, CheckCircle } from 'lucide-react';
 import SectionReveal from '../components/SectionReveal';
+import SEO from '../components/SEO';
 
 const TIERS = [
   {
@@ -25,7 +26,7 @@ const TIERS = [
     benefits: [
       'Logo on event materials and digital assets',
       'Social media recognition',
-      'Invited to YOP community events',
+      'Invited to YPR community events',
       'Mentioned in newsletters and reports',
       'Access to our youth volunteer network',
     ],
@@ -46,6 +47,11 @@ const TIERS = [
 export default function Sponsorship() {
   return (
     <div className="min-h-screen bg-parchment">
+      <SEO 
+        title="Sponsorship & Partnership" 
+        description="Align your brand or business with Peel's most dynamic youth-led organization. Your support directly enables youth programming and community development." 
+        url="/sponsorship" 
+      />
       {/* Hero */}
       <section className="bg-ink pt-32 pb-20 relative overflow-hidden">
         <div className="absolute left-0 top-0 bottom-0 w-1.5 bg-crimson" />

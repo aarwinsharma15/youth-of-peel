@@ -31,12 +31,10 @@ export default function FileUploader({ onUpload, accept = '*', label = 'Upload F
   };
 
   return (
-    <label className={`cursor-pointer group ${className}`}>
-      <input type="file" accept={accept} onChange={handleUpload} className="hidden" />
-      <Button type="button" variant="outline" size="sm" disabled={uploading} className="bg-white/5 border-white/10 text-white hover:bg-white/10 pointer-events-none">
-        {uploading ? <Loader2 size={14} className="animate-spin mr-2" /> : <Upload size={14} className="mr-2" />}
-        {uploading ? 'Uploading...' : label}
-      </Button>
+    <label className={`inline-flex items-center gap-2 px-3 py-1.5 text-sm rounded-md border border-white/10 bg-white/5 text-white hover:bg-white/10 transition-colors ${uploading ? 'opacity-60 cursor-not-allowed' : 'cursor-pointer'} ${className}`}>
+      <input type="file" accept={accept} onChange={handleUpload} disabled={uploading} className="hidden" />
+      {uploading ? <Loader2 size={14} className="animate-spin" /> : <Upload size={14} />}
+      {uploading ? 'Uploading...' : label}
     </label>
   );
 }

@@ -13,7 +13,7 @@ export default function AdminCampaigns() {
   const queryClient = useQueryClient();
   const [showForm, setShowForm] = useState(false);
   const [editId, setEditId] = useState(null);
-  const [form, setForm] = useState({ title: '', description: '', long_description: '', link: '', pdf_url: '', image_url: '', order: 0 });
+  const [form, setForm] = useState({ title: '', description: '', long_description: '', link: '', pdf_url: '', image_url: '', youtube_url: '', order: 0 });
 
   const { data: campaigns } = useQuery({
     queryKey: ['campaigns'],
@@ -31,6 +31,7 @@ export default function AdminCampaigns() {
       return true;
     },
     onSuccess: () => { queryClient.invalidateQueries({ queryKey: ['campaigns'] }); resetForm(); toast.success('Campaign added'); },
+    onError: (err) => { toast.error('Failed to save campaign: ' + err.message); console.error(err); },
   });
 
   const updateMutation = useMutation({
@@ -40,6 +41,7 @@ export default function AdminCampaigns() {
       return true;
     },
     onSuccess: () => { queryClient.invalidateQueries({ queryKey: ['campaigns'] }); resetForm(); toast.success('Campaign updated'); },
+    onError: (err) => { toast.error('Failed to update campaign: ' + err.message); console.error(err); },
   });
 
   const deleteMutation = useMutation({
@@ -54,18 +56,24 @@ export default function AdminCampaigns() {
   const resetForm = () => {
     setShowForm(false);
     setEditId(null);
-    setForm({ title: '', description: '', long_description: '', link: '', pdf_url: '', image_url: '', order: 0 });
+    setForm({ title: '', description: '', long_description: '', link: '', pdf_url: '', image_url: '', youtube_url: '', order: 0 });
   };
 
   const startEdit = (c) => {
     setEditId(c.id);
-    setForm({ title: c.title, description: c.description || '', long_description: c.long_description || '', link: c.link || '', pdf_url: c.pdf_url || '', image_url: c.image_url || '', order: c.order || 0 });
+    setForm({ title: c.title, description: c.description || '', long_description: c.long_description || '', link: c.link || '', pdf_url: c.pdf_url || '', image_url: c.image_url || '', youtube_url: c.youtube_url || '', order: c.order || 0 });
     setShowForm(true);
   };
 
   const handleSubmit = () => {
-    if (editId) updateMutation.mutate({ id: editId, data: form });
-    else createMutation.mutate(form);
+    // Build payload — omit youtube_url if empty to avoid DB column issues
+    const payload = { ...form };
+    if (!payload.youtube_url) delete payload.youtube_url;
+    if (!payload.pdf_url) delete payload.pdf_url;
+    if (!payload.image_url) delete payload.image_url;
+    if (!payload.link) delete payload.link;
+    if (editId) updateMutation.mutate({ id: editId, data: payload });
+    else createMutation.mutate(payload);
   };
 
   return (
@@ -112,8 +120,22 @@ export default function AdminCampaigns() {
               {form.image_url && <img src={form.image_url} alt="" className="w-16 h-16 rounded-lg object-cover" />}
               {form.pdf_url && <span className="text-kinetic text-xs">PDF attached ✓</span>}
             </div>
-            <Button onClick={handleSubmit} disabled={!form.title} className="bg-kinetic hover:bg-kinetic/90">
-              {editId ? 'Update' : 'Create'} Campaign
+            <div>
+              <label className="text-white/60 text-xs block mb-1">YouTube Video URL (optional)</label>
+              <Input
+                value={form.youtube_url}
+                onChange={(e) => setForm({ ...form, youtube_url: e.target.value })}
+                placeholder="https://www.youtube.com/watch?v=..."
+                className="bg-navy border-white/10 text-white"
+              />
+              <p className="text-white/30 text-[10px] mt-1">Paste any YouTube link — watch, short, or youtu.be URLs all work.</p>
+            </div>
+            <Button
+              onClick={handleSubmit}
+              disabled={!form.title || createMutation.isPending || updateMutation.isPending}
+              className="bg-kinetic hover:bg-kinetic/90"
+            >
+              {(createMutation.isPending || updateMutation.isPending) ? 'Saving…' : (editId ? 'Update' : 'Create') + ' Campaign'}
             </Button>
           </div>
         </div>
@@ -127,8 +149,9 @@ export default function AdminCampaigns() {
               <h3 className="text-white font-heading font-semibold text-sm truncate">{c.title}</h3>
               {c.description && <p className="text-white/40 text-xs truncate">{c.description}</p>}
               <div className="flex gap-2 mt-1">
-                {c.link && <span className="text-kinetic text-[10px]">Link ✓</span>}
+              {c.link && <span className="text-kinetic text-[10px]">Link ✓</span>}
                 {c.pdf_url && <span className="text-kinetic text-[10px]">PDF ✓</span>}
+                {c.youtube_url && <span className="text-kinetic text-[10px]">YouTube ✓</span>}
               </div>
             </div>
             <div className="flex gap-2">

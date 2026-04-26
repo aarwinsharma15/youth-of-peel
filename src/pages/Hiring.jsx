@@ -3,6 +3,7 @@ import { supabase } from '@/api/supabaseClient';
 import { useQuery } from '@tanstack/react-query';
 import { ExternalLink, Mail } from 'lucide-react';
 import SectionReveal from '../components/SectionReveal';
+import SEO from '../components/SEO';
 
 export default function Hiring() {
   const { data: positions, isLoading } = useQuery({
@@ -25,6 +26,11 @@ export default function Hiring() {
 
   return (
     <div className="min-h-screen bg-parchment">
+      <SEO 
+        title="Work with Us" 
+        description="Join the team at Youth of Peel Region (YPR). We're always looking for passionate, driven youth to join our growing team in Brampton, Mississauga, and Caledon. Explore our open volunteer and leadership positions." 
+        url="/hiring" 
+      />
       {/* Hero */}
       <section className="bg-ink pt-32 pb-20 relative overflow-hidden">
         <div className="absolute left-0 top-0 bottom-0 w-1.5 bg-crimson" />
@@ -35,7 +41,7 @@ export default function Hiring() {
               WORK WITH US
             </h1>
             <p className="text-white/50 font-body text-base md:text-lg max-w-2xl leading-relaxed">
-              We're always looking for passionate, driven youth to join our growing team. No experience required — just grit, curiosity, and a desire to make a difference.
+              We're always looking for passionate, driven youth to join our growing team. No experience required — just ambition and a desire to make a difference.
             </p>
           </SectionReveal>
         </div>

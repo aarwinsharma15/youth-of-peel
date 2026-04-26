@@ -1,8 +1,29 @@
 import React from 'react';
-import { CheckCircle, Users, Briefcase, Globe, Mic, Clock, Star, Play, Video } from 'lucide-react';
+import { CheckCircle, Users, Briefcase, Globe, Mic, Clock, Star, Video, Image } from 'lucide-react';
 import SectionReveal from '../components/SectionReveal';
 import { supabase } from '@/api/supabaseClient';
 import { useQuery } from '@tanstack/react-query';
+import SEO from '../components/SEO';
+
+/** Extract a YouTube video ID from any common URL format */
+function getYouTubeEmbedUrl(url) {
+  if (!url) return null;
+  try {
+    const u = new URL(url);
+    if (u.hostname === 'youtu.be') {
+      const id = u.pathname.slice(1).split('?')[0];
+      return id ? `https://www.youtube.com/embed/${id}` : null;
+    }
+    if (u.pathname.startsWith('/shorts/')) {
+      const id = u.pathname.split('/shorts/')[1]?.split('?')[0];
+      return id ? `https://www.youtube.com/embed/${id}` : null;
+    }
+    const v = u.searchParams.get('v');
+    return v ? `https://www.youtube.com/embed/${v}` : null;
+  } catch {
+    return null;
+  }
+}
 
 const BENEFITS = [
   { icon: Clock, title: 'Volunteer Hours', desc: 'Earn OSSD-credited volunteer hours through our programs and events.' },
@@ -34,6 +55,11 @@ export default function Membership() {
 
   return (
     <div className="min-h-screen bg-parchment">
+      <SEO 
+        title="Become a Member" 
+        description="Join the Youth of Peel Region (YPR). Membership is your entry point into civic life, leadership development, and the community that's actively reshaping Brampton, Mississauga, and Caledon. Earn volunteer hours, build your resume, and connect with mentors." 
+        url="/membership" 
+      />
       {/* Hero */}
       <section className="bg-ink pt-32 pb-20 relative overflow-hidden">
         {heroImage && (
@@ -52,9 +78,17 @@ export default function Membership() {
             <h1 className="font-display text-[clamp(3rem,10vw,8rem)] text-white leading-none tracking-wide mb-6">
               BECOME A<br />MEMBER
             </h1>
-            <p className="text-white/50 font-body text-base md:text-lg max-w-2xl leading-relaxed">
-              Membership is your entry point into civic life, leadership development, and a community that's actively reshaping the Region of Peel.
+            <p className="text-white/50 font-body text-base md:text-lg max-w-2xl leading-relaxed mb-8">
+              Membership: your way to get involved in the community that's actively reshaping the Region of Peel.
             </p>
+            <a
+              href="https://docs.google.com/forms/d/e/1FAIpQLSdVgO7owVS8wreW0hUycVucNB8WpM2WEDb6Lk6Q78Hc24EGLw/viewform?usp=dialog"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-block px-8 py-4 bg-crimson text-white font-heading font-bold text-sm uppercase tracking-widest hover:bg-ember transition-colors"
+            >
+              Apply Now — It's Free
+            </a>
           </SectionReveal>
         </div>
       </section>
@@ -94,38 +128,45 @@ export default function Membership() {
               <h2 className="font-display text-[clamp(2.5rem,7vw,5.5rem)] text-ink leading-none tracking-wide text-center mb-16 italic">WHAT OUR MEMBERS SAY</h2>
             </SectionReveal>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-              {testimonials.map((t, i) => (
-                <SectionReveal key={t.id} delay={i * 0.1}>
-                  <div className="bg-white p-6 shadow-sm border border-ink/5 relative group h-full flex flex-col">
-                    <div className="aspect-video bg-ink mb-6 relative overflow-hidden group/video">
-                      {t.thumbnail_url ? (
-                        <img src={t.thumbnail_url} alt={t.name} className="w-full h-full object-cover opacity-70 group-hover/video:scale-105 transition-transform duration-700" />
-                      ) : (
-                        <div className="w-full h-full flex items-center justify-center text-white/10 uppercase font-heading text-[10px] tracking-widest">
-                          <Video size={32} strokeWidth={1.5} />
-                        </div>
-                      )}
-                      <a 
-                        href={t.video_url} 
-                        target="_blank" 
-                        rel="noopener noreferrer" 
-                        className="absolute inset-0 flex items-center justify-center bg-ink/20 group-hover/video:bg-ink/0 transition-colors"
-                      >
-                        <div className="w-12 h-12 rounded-full border border-white/40 flex items-center justify-center group-hover/video:scale-110 group-hover/video:bg-white group-hover/video:text-ink transition-all">
-                          <Play size={20} className="ml-1 fill-current" />
-                        </div>
-                      </a>
+              {testimonials.map((t, i) => {
+                const mediaUrl = t.media_url || t.thumbnail_url || null;
+                const mediaType = t.media_type || 'image';
+
+                return (
+                  <SectionReveal key={t.id} delay={i * 0.1}>
+                    <div className="bg-white p-6 shadow-sm border border-ink/5 relative group h-full flex flex-col">
+                      <div className="aspect-video bg-ink mb-6 relative overflow-hidden">
+                        {mediaType === 'video' && getYouTubeEmbedUrl(mediaUrl) ? (
+                          <iframe
+                            src={getYouTubeEmbedUrl(mediaUrl)}
+                            title={t.name}
+                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                            allowFullScreen
+                            className="w-full h-full"
+                          />
+                        ) : mediaUrl ? (
+                          <img
+                            src={mediaUrl}
+                            alt={t.name}
+                            className="w-full h-full object-cover"
+                          />
+                        ) : (
+                          <div className="w-full h-full flex items-center justify-center text-white/10">
+                            {mediaType === 'video' ? <Video size={32} strokeWidth={1.5} /> : <Image size={32} strokeWidth={1.5} />}
+                          </div>
+                        )}
+                      </div>
+                      <div className="flex-1">
+                        <p className="text-ink/60 font-body text-sm italic mb-6 leading-relaxed">"{t.quote}"</p>
+                      </div>
+                      <div className="mt-auto pt-6 border-t border-ink/5">
+                        <h4 className="font-heading font-bold text-ink text-sm">{t.name}</h4>
+                        <p className="text-crimson font-heading font-semibold text-[10px] uppercase tracking-wider">{t.role}</p>
+                      </div>
                     </div>
-                    <div className="flex-1">
-                      <p className="text-ink/60 font-body text-sm italic mb-6 leading-relaxed">"{t.quote}"</p>
-                    </div>
-                    <div className="mt-auto pt-6 border-t border-ink/5">
-                      <h4 className="font-heading font-bold text-ink text-sm">{t.name}</h4>
-                      <p className="text-crimson font-heading font-semibold text-[10px] uppercase tracking-wider">{t.role}</p>
-                    </div>
-                  </div>
-                </SectionReveal>
-              ))}
+                  </SectionReveal>
+                );
+              })}
             </div>
           </div>
         </section>
@@ -160,7 +201,7 @@ export default function Membership() {
                 <h3 className="font-display text-3xl text-white tracking-wide mb-2">APPLY NOW</h3>
                 <p className="text-white/40 font-body text-sm mb-8">Registration takes less than 5 minutes. Membership is completely free.</p>
                 <a
-                  href="https://forms.gle/yourformlink"
+                  href="https://docs.google.com/forms/d/e/1FAIpQLSdVgO7owVS8wreW0hUycVucNB8WpM2WEDb6Lk6Q78Hc24EGLw/viewform?usp=dialog"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="block w-full text-center px-8 py-4 bg-crimson text-white font-heading font-bold text-sm uppercase tracking-widest hover:bg-ember transition-colors mb-4"

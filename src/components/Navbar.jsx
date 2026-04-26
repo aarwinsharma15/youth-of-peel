@@ -47,7 +47,7 @@ export default function Navbar() {
                   <motion.img
                     key="logo-full"
                     src={logoFull}
-                    alt="Youth of Peel"
+                    alt="Youth of Peel Region"
                     initial={{ opacity: 0, x: -10 }}
                     animate={{ opacity: 1, x: 0 }}
                     exit={{ opacity: 0, x: -10 }}
@@ -58,7 +58,7 @@ export default function Navbar() {
                   <motion.img
                     key="logo-icon"
                     src={logoIcon}
-                    alt="Youth of Peel"
+                    alt="Youth of Peel Region"
                     initial={{ opacity: 0, scale: 0.8 }}
                     animate={{ opacity: 1, scale: 1 }}
                     exit={{ opacity: 0, scale: 0.8 }}
@@ -84,12 +84,14 @@ export default function Navbar() {
                 {link.label}
               </Link>
             ))}
-            <Link
-              to="/membership"
+            <a
+              href="https://docs.google.com/forms/d/e/1FAIpQLSdVgO7owVS8wreW0hUycVucNB8WpM2WEDb6Lk6Q78Hc24EGLw/viewform?usp=dialog"
+              target="_blank"
+              rel="noopener noreferrer"
               className="ml-3 px-5 py-2 bg-kinetic text-white text-sm font-semibold rounded-full hover:bg-kinetic/90 transition-colors"
             >
               Join Now
-            </Link>
+            </a>
           </div>
 
           {/* Mobile Toggle */}
@@ -124,12 +126,14 @@ export default function Navbar() {
                   {link.label}
                 </Link>
               ))}
-              <Link
-                to="/membership"
+              <a
+                href="https://docs.google.com/forms/d/e/1FAIpQLSdVgO7owVS8wreW0hUycVucNB8WpM2WEDb6Lk6Q78Hc24EGLw/viewform?usp=dialog"
+                target="_blank"
+                rel="noopener noreferrer"
                 className="block text-center mt-3 px-5 py-3 bg-kinetic text-white text-sm font-semibold rounded-full"
               >
                 Join Now
-              </Link>
+              </a>
             </div>
           </motion.div>
         )}
