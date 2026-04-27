@@ -1,3 +1,4 @@
+// @ts-nocheck
 import React, { useState } from 'react';
 import { supabase } from '@/api/supabaseClient';
 import { Mail, MapPin, Send, CheckCircle } from 'lucide-react';

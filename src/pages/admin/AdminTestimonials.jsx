@@ -1,7 +1,8 @@
+// @ts-nocheck
 import React, { useState } from 'react';
 import { supabase } from '@/api/supabaseClient';
 import { useQuery, useMutation, useQueryClient } from '@tanstack/react-query';
-import { Plus, Trash2, X, Pencil, Image, Video, Loader2 } from 'lucide-react';
+import { Plus, Trash2, X, Image, Loader2 } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Textarea } from '@/components/ui/textarea';
@@ -11,8 +12,7 @@ const EMPTY_FORM = {
   name: '',
   role: '',
   quote: '',
-  media_url: '',
-  media_type: 'image',
+  thumbnail_url: '',
   order: 0,
 };
 
@@ -89,7 +89,6 @@ export default function AdminTestimonials() {
 
   const [showForm, setShowForm] = useState(false);
   const [form, setForm] = useState(EMPTY_FORM);
-  const [editing, setEditing] = useState({});
 
   // ---------------- FETCH TESTIMONIALS ----------------
   const { data: testimonials = [], isLoading } = useQuery({
@@ -147,37 +146,6 @@ export default function AdminTestimonials() {
     },
   });
 
-  // ---------------- UPDATE ----------------
-  const updateMutation = useMutation({
-    mutationFn: async ({ id, data }) => {
-      const { error } = await supabase
-        .from('testimonial')
-        .update(data)
-        .eq('id', id);
-
-      if (error) throw error;
-    },
-
-    onSuccess: async (_, { id }) => {
-      toast.success('Testimonial updated');
-
-      setEditing((prev) => {
-        const copy = { ...prev };
-        delete copy[id];
-        return copy;
-      });
-
-      await queryClient.invalidateQueries({
-        queryKey: ['testimonials'],
-      });
-    },
-
-    onError: (err) => {
-      console.error('UPDATE ERROR:', err);
-      toast.error(`Update failed: ${err.message}`);
-    },
-  });
-
   // ---------------- DELETE ----------------
   const deleteMutation = useMutation({
     mutationFn: async (id) => {
@@ -207,7 +175,7 @@ export default function AdminTestimonials() {
   const handleImageUpload = (url) => {
     setForm((prev) => ({
       ...prev,
-      media_url: url,
+      thumbnail_url: url,
     }));
   };
 
@@ -218,7 +186,7 @@ export default function AdminTestimonials() {
       return;
     }
 
-    if (!form.media_url) {
+    if (!form.thumbnail_url) {
       toast.error('Please upload an image');
       return;
     }
@@ -227,8 +195,7 @@ export default function AdminTestimonials() {
       name: form.name.trim(),
       role: form.role?.trim() || '',
       quote: form.quote?.trim() || '',
-      media_url: form.media_url,
-      media_type: 'image',
+      thumbnail_url: form.thumbnail_url,
       order: Number(form.order) || 0,
     };
 
@@ -347,10 +314,10 @@ export default function AdminTestimonials() {
                 icon={Image}
               />
 
-              {form.media_url && (
+              {form.thumbnail_url && (
                 <div className="flex items-center gap-2">
                   <img
-                    src={form.media_url}
+                    src={form.thumbnail_url}
                     alt=""
                     className="w-24 h-16 object-cover rounded"
                   />
@@ -361,7 +328,7 @@ export default function AdminTestimonials() {
                     onClick={() =>
                       setForm((prev) => ({
                         ...prev,
-                        media_url: '',
+                        thumbnail_url: '',
                       }))
                     }
                     className="text-white/30 hover:text-red-400"
@@ -411,9 +378,9 @@ export default function AdminTestimonials() {
             className="bg-ash border border-white/5 rounded-xl overflow-hidden"
           >
             <div className="aspect-video relative bg-ink">
-              {t.media_url ? (
+              {t.thumbnail_url ? (
                 <img
-                  src={t.media_url}
+                  src={t.thumbnail_url}
                   alt={t.name}
                   className="w-full h-full object-cover"
                 />
@@ -434,18 +401,6 @@ export default function AdminTestimonials() {
               <p className="text-white/50 italic mt-2">"{t.quote}"</p>
 
               <div className="flex gap-2 mt-4">
-                <button
-                  onClick={() =>
-                    setEditing((prev) => ({
-                      ...prev,
-                      [t.id]: t,
-                    }))
-                  }
-                  className="p-1.5 text-white/20 hover:text-white"
-                >
-                  <Pencil size={14} />
-                </button>
-
                 <button
                   onClick={() => deleteMutation.mutate(t.id)}
                   className="p-1.5 text-white/20 hover:text-red-400"
