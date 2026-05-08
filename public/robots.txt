@@ -3,4 +3,4 @@ Allow: /
 Disallow: /admin
 Disallow: /admin/*
 
-Sitemap: https://youthofpeel.com/sitemap.xml
+Sitemap: https://youthofpeel.ca/sitemap.xml

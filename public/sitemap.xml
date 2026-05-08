@@ -2,51 +2,51 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <!-- Homepage -->
   <url>
-    <loc>https://youthofpeel.com/</loc>
+    <loc>https://youthofpeel.ca/</loc>
     <lastmod>2026-05-08</lastmod>
     <changefreq>daily</changefreq>
     <priority>1.0</priority>
   </url>
   <!-- High Priority Pages -->
   <url>
-    <loc>https://youthofpeel.com/membership</loc>
+    <loc>https://youthofpeel.ca/membership</loc>
     <lastmod>2026-05-08</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://youthofpeel.com/our-work</loc>
+    <loc>https://youthofpeel.ca/our-work</loc>
     <lastmod>2026-05-08</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://youthofpeel.com/hiring</loc>
+    <loc>https://youthofpeel.ca/hiring</loc>
     <lastmod>2026-05-08</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://youthofpeel.com/sponsorship</loc>
+    <loc>https://youthofpeel.ca/sponsorship</loc>
     <lastmod>2026-05-08</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <!-- Standard Pages -->
   <url>
-    <loc>https://youthofpeel.com/programs</loc>
+    <loc>https://youthofpeel.ca/programs</loc>
     <lastmod>2026-05-08</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://youthofpeel.com/about</loc>
+    <loc>https://youthofpeel.ca/about</loc>
     <lastmod>2026-05-08</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://youthofpeel.com/contact</loc>
+    <loc>https://youthofpeel.ca/contact</loc>
     <lastmod>2026-05-08</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>

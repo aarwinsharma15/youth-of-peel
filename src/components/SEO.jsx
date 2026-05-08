@@ -6,8 +6,8 @@ export default function SEO({ title, description, url, image, keywords }) {
     const siteTitle = 'Youth of Peel Region';
     const fullTitle = title ? `${title} | ${siteTitle}` : siteTitle;
     const desc = description || "A youth-led nonprofit organization dedicated to unifying young people across Brampton, Mississauga, and Caledon, and closing the opportunity gap through advocacy and community action.";
-    const metaUrl = url ? `https://youthofpeel.com${url}` : 'https://youthofpeel.com/';
-    const metaImage = image || 'https://youthofpeel.com/og-preview.png';
+    const metaUrl = url ? `https://youthofpeel.ca${url}` : 'https://youthofpeel.ca/';
+    const metaImage = image || 'https://youthofpeel.ca/og-preview.png';
 
     // Update document title
     document.title = fullTitle;
@@ -55,8 +55,8 @@ export default function SEO({ title, description, url, image, keywords }) {
       "@type": "NGO",
       "name": "Youth of Peel Region",
       "alternateName": "YPR",
-      "url": "https://youthofpeel.com",
-      "logo": "https://youthofpeel.com/logo-full.png",
+      "url": "https://youthofpeel.ca",
+      "logo": "https://youthofpeel.ca/logo-full.png",
       "description": desc,
       "address": {
         "@type": "PostalAddress",
