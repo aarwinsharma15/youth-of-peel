@@ -7,7 +7,7 @@ export default function SEO({ title, description, url, image, keywords }) {
     const fullTitle = title ? `${title} | ${siteTitle}` : siteTitle;
     const desc = description || "A youth-led nonprofit organization dedicated to unifying young people across Brampton, Mississauga, and Caledon, and closing the opportunity gap through advocacy and community action.";
     const metaUrl = url ? `https://youthofpeel.com${url}` : 'https://youthofpeel.com/';
-    const metaImage = image || '/logo-full.png';
+    const metaImage = image || 'https://youthofpeel.com/og-preview.png';
 
     // Update document title
     document.title = fullTitle;

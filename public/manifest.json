@@ -1,0 +1,24 @@
+{
+  "name": "Youth of Peel Region",
+  "short_name": "YPR",
+  "description": "A youth-led nonprofit unifying young people across Brampton, Mississauga, and Caledon.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#fdf8f4",
+  "theme_color": "#d92d2d",
+  "lang": "en-CA",
+  "icons": [
+    {
+      "src": "/logo.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "/logo.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ]
+}
