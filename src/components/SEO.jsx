@@ -1,6 +1,6 @@
 import { useEffect } from 'react';
 
-export default function SEO({ title, description, url, image }) {
+export default function SEO({ title, description, url, image, keywords }) {
   useEffect(() => {
     // Determine tags
     const siteTitle = 'Youth of Peel Region';
@@ -28,8 +28,10 @@ export default function SEO({ title, description, url, image }) {
     };
 
     // Standard Meta
+    const defaultKeywords = "Youth of Peel, Youth of Peel Region, Brampton youth, Mississauga youth, Caledon youth, youth nonprofit, youth advocacy, youth led organization, Peel Region";
     setMetaTag('meta[name="title"]', 'content', fullTitle);
     setMetaTag('meta[name="description"]', 'content', desc);
+    setMetaTag('meta[name="keywords"]', 'content', keywords || defaultKeywords);
     setMetaTag('meta[name="robots"]', 'content', 'index, follow');
     setMetaTag('meta[name="language"]', 'content', 'English');
 

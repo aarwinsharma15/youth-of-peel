@@ -58,6 +58,7 @@ export default function Membership() {
       <SEO 
         title="Become a Member" 
         description="Join the Youth of Peel Region (YPR). Membership is your entry point into civic life, leadership development, and the community that's actively reshaping Brampton, Mississauga, and Caledon. Earn volunteer hours, build your resume, and connect with mentors." 
+        keywords="Youth of Peel membership, join Youth of Peel, Peel Region youth volunteer, Brampton youth volunteering, Mississauga youth leadership, Caledon student volunteer hours"
         url="/membership" 
       />
       {/* Hero */}

@@ -50,6 +50,7 @@ export default function Sponsorship() {
       <SEO 
         title="Sponsorship & Partnership" 
         description="Align your brand or business with Peel's most dynamic youth-led organization. Your support directly enables youth programming and community development." 
+        keywords="Youth of Peel sponsorship, partner with Youth of Peel, Peel region community partner, Brampton corporate sponsor, Mississauga nonprofit partner, Caledon youth charity sponsorship"
         url="/sponsorship" 
       />
       {/* Hero */}

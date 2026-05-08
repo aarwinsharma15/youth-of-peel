@@ -29,6 +29,7 @@ export default function Hiring() {
       <SEO 
         title="Work with Us" 
         description="Join the team at Youth of Peel Region (YPR). We're always looking for passionate, driven youth to join our growing team in Brampton, Mississauga, and Caledon. Explore our open volunteer and leadership positions." 
+        keywords="Youth of Peel jobs, Youth of Peel hiring, Peel region youth employment, Brampton youth leadership roles, Mississauga volunteer opportunities, Caledon youth work"
         url="/hiring" 
       />
       {/* Hero */}
