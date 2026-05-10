@@ -28,8 +28,8 @@ export default function Hiring() {
     <div className="min-h-screen bg-parchment">
       <SEO 
         title="Work with Us" 
-        description="Join the team at Youth of Peel Region (YPR). We're always looking for passionate, driven youth to join our growing team in Brampton, Mississauga, and Caledon. Explore our open volunteer and leadership positions." 
-        keywords="Youth of Peel jobs, Youth of Peel hiring, Peel region youth employment, Brampton youth leadership roles, Mississauga volunteer opportunities, Caledon youth work"
+        description="Join the Youth of Peel team. We're looking for passionate youth to take on volunteer and leadership roles in Brampton, Mississauga, and Caledon. No experience required." 
+        keywords="Youth of Peel jobs, Youth of Peel hiring, Peel Region youth employment, Brampton youth leadership roles, Mississauga volunteer opportunities, Caledon youth work"
         url="/hiring" 
       />
       {/* Hero */}
@@ -137,7 +137,7 @@ export default function Hiring() {
           <SectionReveal>
             <h2 className="font-display text-3xl md:text-4xl text-ink leading-none tracking-wide mb-4">DON'T SEE THE RIGHT ROLE?</h2>
             <p className="text-ink/40 font-body text-sm mb-6">Reach out — we're always open to motivated youth who want to contribute.</p>
-            <a href="mailto:info.youthofpeel@gmail.com" className="inline-flex items-center gap-2 px-7 py-3 bg-ink text-white font-heading font-bold text-sm uppercase tracking-wider hover:bg-ash transition-colors">
+            <a href="mailto:info.peelyouth@gmail.com" className="inline-flex items-center gap-2 px-7 py-3 bg-ink text-white font-heading font-bold text-sm uppercase tracking-wider hover:bg-ash transition-colors">
               <Mail size={15} /> Email Us Directly
             </a>
           </SectionReveal>

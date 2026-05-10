@@ -10,8 +10,8 @@ export default function Home() {
     <div className="bg-parchment">
       <SEO 
         title="Home" 
-        description="Youth of Peel Region (YPR) is a youth-led nonprofit organization dedicated to unifying young people across Brampton, Mississauga, and Caledon. We aim to close the opportunity gap through advocacy, community reform, placements, and mentorship. Join us in reshaping the Region of Peel." 
-        keywords="Youth of Peel, Youth of Peel Region, YPR, Peel Region Youth, Brampton Youth, Mississauga Youth, Caledon Youth, youth nonprofit Canada, youth advocacy Ontario"
+        description="Youth of Peel is a youth-led organization empowering young people across Brampton, Mississauga, and Caledon through advocacy, mentorship, and community action in the Peel Region." 
+        keywords="Youth of Peel, youth organization Peel Region, youth programs Brampton, youth services Mississauga, youth organization Caledon, youth advocacy Ontario, volunteer hours Peel"
         url="/" 
       />
       <HeroSection />

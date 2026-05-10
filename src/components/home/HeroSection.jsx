@@ -29,7 +29,7 @@ export default function HeroSection() {
       <div className="absolute inset-0">
         <img
           src={heroImage}
-          alt="Youth leaders"
+          alt="Youth of Peel community leaders in the Peel Region"
           className="w-full h-full object-cover object-top"
         />
         <div className="absolute inset-0 bg-gradient-to-b from-ink/80 via-ink/60 to-ink" />
@@ -54,6 +54,7 @@ export default function HeroSection() {
           transition={{ duration: 0.7, delay: 0.2 }}
           className="font-display text-[clamp(3.5rem,12vw,9rem)] text-white leading-[0.88] tracking-wide mb-6"
         >
+          <span className="sr-only">Youth of Peel — </span>
           EMPOWERING<br />
           <span className="text-crimson">YOUTH</span><br />
           TO LEAD.
@@ -65,7 +66,7 @@ export default function HeroSection() {
           transition={{ duration: 0.6, delay: 0.4 }}
           className="text-white/60 font-body text-base sm:text-lg max-w-xl mb-10 leading-relaxed"
         >
-          Youth of Peel Region is a youth-led nonprofit unifying young people across the Region of Peel and closing the opportunity gap they all face.
+          Youth of Peel is a youth-led organization unifying young people across the Peel Region — closing the opportunity gap through advocacy, mentorship, and community action in Brampton, Mississauga, and Caledon.
         </motion.p>
 
         <motion.div

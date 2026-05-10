@@ -63,7 +63,7 @@ export default function Footer() {
               className="h-16 w-auto mb-6 opacity-90 hover:opacity-100 transition-opacity"
             />
             <p className="text-white/60 text-sm leading-relaxed max-w-xs">
-              A youth-led nonprofit organization dedicated to unifying young people across the Region of Peel.
+              Youth of Peel is a youth-led organization empowering young people across Brampton, Mississauga, and Caledon in the Peel Region.
             </p>
             <div className="flex gap-4 mt-6">
               {SOCIAL_LINKS.map((s) => (

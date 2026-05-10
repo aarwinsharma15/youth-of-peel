@@ -27,7 +27,7 @@ export default function Contact() {
     <div className="min-h-screen bg-parchment">
       <SEO 
         title="Contact Us" 
-        description="Get in touch with Youth of Peel Region (YPR). Whether you have questions, want to partner, or just want to connect, our team is here to listen. Reach out from Brampton, Mississauga, or Caledon." 
+        description="Get in touch with Youth of Peel. Whether you have questions, want to partner, or just want to connect, our team in Brampton and the Peel Region is here to listen." 
         url="/contact" 
       />
       {/* Hero */}
@@ -67,8 +67,8 @@ export default function Contact() {
                     </div>
                     <div>
                       <p className="font-heading font-bold text-ink text-sm mb-0.5">Email</p>
-                      <a href="mailto:info.youthofpeel@gmail.com" className="text-ink/50 font-body text-sm hover:text-crimson transition-colors">
-                        info.youthofpeel@gmail.com
+                      <a href="mailto:info.peelyouth@gmail.com" className="text-ink/50 font-body text-sm hover:text-crimson transition-colors">
+                        info.peelyouth@gmail.com
                       </a>
                     </div>
                   </div>

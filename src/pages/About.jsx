@@ -41,13 +41,13 @@ export default function About() {
     <div className="min-h-screen bg-parchment">
       <SEO 
         title="About Us" 
-        description="Learn about the Youth of Peel Region (YPR), a youth-led organization founded to close the opportunity gap. Discover our story, our core values of being youth-led, community-first, and action-oriented, and meet the dedicated team driving regional reform in Peel." 
+        description="Learn about Youth of Peel, a youth-led organization closing the opportunity gap in the Peel Region. Discover our story, core values, and the team driving change in Brampton, Mississauga, and Caledon." 
         url="/about" 
       />
       {/* Hero */}
       <section className="relative pt-32 pb-24 bg-ink overflow-hidden">
         <div className="absolute inset-0">
-          <img src={heroImage} alt="Youth group" className="w-full h-full object-cover opacity-25 object-top" />
+          <img src={heroImage} alt="Youth of Peel community group" className="w-full h-full object-cover opacity-25 object-top" />
           <div className="absolute inset-0 bg-gradient-to-b from-ink via-ink/80 to-ink" />
         </div>
         <div className="absolute left-0 top-0 bottom-0 w-1.5 bg-crimson" />
@@ -80,14 +80,14 @@ export default function About() {
               {storyImage && (
                 <SectionReveal delay={0.1}>
                   <div className="aspect-[4/5] overflow-hidden bg-ink/5">
-                    <img src={storyImage} alt="About our story" className="w-full h-full object-cover" />
+                    <img src={storyImage} alt="Youth of Peel — our story" className="w-full h-full object-cover" />
                   </div>
                 </SectionReveal>
               )}
             </div>
             <SectionReveal delay={0.15}>
               <div className="space-y-5 text-ink/60 font-body text-base leading-relaxed">
-                <p>Youth of Peel Region was founded in 2024 when a group of young people in the region realized that, despite their passion for civic engagement and their love for their community, there was no real infrastructure to support them. They saw a gap between youth's desire to lead and the opportunities that were available to make it happen.</p>
+                <p>Youth of Peel was founded in 2024 when a group of young people in the region realized that, despite their passion for civic engagement and their love for their community, there was no real infrastructure to support them. They saw a gap between youth's desire to lead and the opportunities that were available to make it happen.</p>
                 <p>What started as an informal conversation turned into a team that now boasts over 20 staff members and 100 actively engaged youth, and a major presence across every municipality in the Region of Peel.</p>
                 <p>We've appeared before the regional council, developed policy briefs, launched mentorship programs, and built one of the most active youth civic networks in Ontario.</p>
                 <p>In just two years, we've proven that when young people are given the space and structure to lead, they show up — and they deliver.</p>

@@ -57,7 +57,7 @@ export default function Membership() {
     <div className="min-h-screen bg-parchment">
       <SEO 
         title="Become a Member" 
-        description="Join the Youth of Peel Region (YPR). Membership is your entry point into civic life, leadership development, and the community that's actively reshaping Brampton, Mississauga, and Caledon. Earn volunteer hours, build your resume, and connect with mentors." 
+        description="Join Youth of Peel for free. Earn volunteer hours, build your resume, and develop leadership skills with other young people across Brampton, Mississauga, and Caledon." 
         keywords="Youth of Peel membership, join Youth of Peel, Peel Region youth volunteer, Brampton youth volunteering, Mississauga youth leadership, Caledon student volunteer hours"
         url="/membership" 
       />
@@ -65,7 +65,7 @@ export default function Membership() {
       <section className="bg-ink pt-32 pb-20 relative overflow-hidden">
         {heroImage && (
           <div className="absolute inset-0">
-            <img src={heroImage} alt="" className="w-full h-full object-cover opacity-20" />
+            <img src={heroImage} alt="Youth of Peel membership" className="w-full h-full object-cover opacity-20" />
             <div className="absolute inset-0 bg-gradient-to-r from-ink via-ink/60 to-transparent" />
           </div>
         )}

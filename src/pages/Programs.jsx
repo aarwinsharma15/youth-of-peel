@@ -20,7 +20,7 @@ export default function Programs() {
     <div className="min-h-screen bg-parchment">
       <SEO 
         title="Our Programs" 
-        description="Explore the hands-on programs offered by Youth of Peel Region (YPR). Designed to give youth in Brampton, Mississauga, and Caledon real skills, connections, and impact through leadership and community development." 
+        description="Explore youth programs offered by Youth of Peel. Hands-on opportunities giving young people in Brampton, Mississauga, and Caledon real skills, connections, and community impact." 
         url="/programs" 
       />
       {/* Hero */}

@@ -49,8 +49,8 @@ export default function Sponsorship() {
     <div className="min-h-screen bg-parchment">
       <SEO 
         title="Sponsorship & Partnership" 
-        description="Align your brand or business with Peel's most dynamic youth-led organization. Your support directly enables youth programming and community development." 
-        keywords="Youth of Peel sponsorship, partner with Youth of Peel, Peel region community partner, Brampton corporate sponsor, Mississauga nonprofit partner, Caledon youth charity sponsorship"
+        description="Partner with Youth of Peel, the Peel Region's most dynamic youth-led organization. Your sponsorship directly enables youth programs and community development in Brampton and beyond." 
+        keywords="Youth of Peel sponsorship, partner with Youth of Peel, Peel Region community partner, Brampton corporate sponsor, Mississauga organization partner, Caledon youth charity sponsorship"
         url="/sponsorship" 
       />
       {/* Hero */}
@@ -108,7 +108,7 @@ export default function Sponsorship() {
           <SectionReveal>
             <h2 className="font-display text-[clamp(2rem,6vw,4.5rem)] text-white leading-none tracking-wide mb-4">READY TO PARTNER WITH US?</h2>
             <p className="text-white/60 font-body text-sm mb-8">Reach out and let's build something meaningful together for the Region of Peel.</p>
-            <a href="mailto:info.youthofpeel@gmail.com?subject=Sponsorship Inquiry" className="inline-flex items-center gap-2 px-8 py-4 bg-white text-crimson font-heading font-bold text-sm uppercase tracking-widest hover:bg-parchment transition-colors">
+            <a href="mailto:info.peelyouth@gmail.com?subject=Sponsorship Inquiry" className="inline-flex items-center gap-2 px-8 py-4 bg-white text-crimson font-heading font-bold text-sm uppercase tracking-widest hover:bg-parchment transition-colors">
               <Mail size={16} /> Contact Us About Sponsorship
             </a>
           </SectionReveal>

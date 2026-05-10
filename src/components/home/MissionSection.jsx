@@ -28,7 +28,7 @@ export default function MissionSection() {
             Our Mission
           </p>
           <blockquote className="font-heading text-2xl md:text-3xl lg:text-4xl text-white font-medium leading-relaxed text-center">
-            "Youth of Peel Region is a youth-led nonprofit organization dedicated to unifying young people across the Region of Peel and closing the opportunity gap that they all face. We aim to build a future where every young person has the resources and network to shape their own lives by empowering individuals through placements, mentorship, and networking while driving regional reform through advocacy."
+            "Youth of Peel is a youth-led organization dedicated to unifying young people across the Peel Region and closing the opportunity gap that they all face. We aim to build a future where every young person has the resources and network to shape their own lives by empowering individuals through placements, mentorship, and networking while driving regional reform through advocacy."
           </blockquote>
         </SectionReveal>
       </div>

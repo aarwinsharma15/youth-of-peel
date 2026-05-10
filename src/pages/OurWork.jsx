@@ -46,8 +46,8 @@ export default function OurWork() {
     <div className="min-h-screen bg-parchment">
       <SEO 
         title="Our Work & Campaigns" 
-        description="Explore the impact and initiatives of Youth of Peel Region (YPR). From grassroots advocacy and community reform to formal policy briefs and youth programming in Brampton, Mississauga, and Caledon." 
-        keywords="Youth of Peel campaigns, Peel region youth initiatives, Brampton community reform, Mississauga youth advocacy, Caledon grassroots programs, Youth of Peel Region impact"
+        description="Explore the impact of Youth of Peel. From grassroots advocacy to policy briefs, see our campaigns driving youth-led reform across Brampton, Mississauga, and Caledon." 
+        keywords="Youth of Peel campaigns, Peel Region youth initiatives, Brampton community reform, Mississauga youth advocacy, Caledon grassroots programs, Youth of Peel impact"
         url="/our-work" 
       />
       {/* Hero */}
