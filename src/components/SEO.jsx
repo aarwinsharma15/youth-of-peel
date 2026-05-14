@@ -2,17 +2,14 @@ import { useEffect } from 'react';
 
 export default function SEO({ title, description, url, image, keywords }) {
   useEffect(() => {
-    // Determine tags
     const siteTitle = 'Youth of Peel';
     const fullTitle = title ? `${title} | ${siteTitle}` : `${siteTitle} | Empowering Youth in the Peel Region`;
     const desc = description || "Youth of Peel is a youth-led organization empowering young people across Brampton, Mississauga, and Caledon through advocacy, mentorship, and community action in the Peel Region.";
     const metaUrl = url ? `https://youthofpeel.ca${url}` : 'https://youthofpeel.ca/';
-    const metaImage = image || 'https://youthofpeel.ca/og-image.jpg';
+    const metaImage = image || 'https://youthofpeel.ca/og-preview.png';
 
-    // Update document title
     document.title = fullTitle;
 
-    // Helper function to set meta tags
     const setMetaTag = (selector, attribute, value) => {
       let element = document.querySelector(selector);
       if (!element) {
@@ -27,7 +24,6 @@ export default function SEO({ title, description, url, image, keywords }) {
       element.setAttribute(attribute, value);
     };
 
-    // Helper to set link tags (e.g. canonical)
     const setLinkTag = (rel, href) => {
       let link = document.querySelector(`link[rel="${rel}"]`);
       if (!link) {
@@ -42,14 +38,14 @@ export default function SEO({ title, description, url, image, keywords }) {
     setLinkTag('canonical', metaUrl);
 
     // Standard Meta
-    const defaultKeywords = "Youth of Peel, youth organization Peel Region, youth programs Brampton, youth services Mississauga, youth organization Caledon, youth advocacy Ontario, youth leadership Peel, volunteer hours Peel Region";
+    const defaultKeywords = "Youth of Peel, YPR, youth organization Peel Region, youth programs Brampton, youth services Mississauga, youth organization Caledon, youth advocacy Ontario, youth leadership Peel, volunteer hours Peel Region";
     setMetaTag('meta[name="title"]', 'content', fullTitle);
     setMetaTag('meta[name="description"]', 'content', desc);
     setMetaTag('meta[name="keywords"]', 'content', keywords || defaultKeywords);
     setMetaTag('meta[name="robots"]', 'content', 'index, follow');
     setMetaTag('meta[name="language"]', 'content', 'English');
 
-    // Open Graph / Facebook
+    // Open Graph
     setMetaTag('meta[property="og:title"]', 'content', fullTitle);
     setMetaTag('meta[property="og:description"]', 'content', desc);
     setMetaTag('meta[property="og:url"]', 'content', metaUrl);
@@ -66,18 +62,37 @@ export default function SEO({ title, description, url, image, keywords }) {
     // JSON-LD Schema
     const schemaData = {
       "@context": "https://schema.org",
-      "@type": "Organization",
+      "@type": "NonprofitOrganization",
       "name": "Youth of Peel",
+      "alternateName": ["YPR", "Youth of Peel", "Peel Youth", "Youth of Peel Region"],
       "url": "https://youthofpeel.ca",
-      "logo": "https://youthofpeel.ca/logo.png",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://youthofpeel.ca/logo.png"
+      },
+      "image": metaImage,
       "description": desc,
       "foundingDate": "2024",
-      "address": {
-        "@type": "PostalAddress",
-        "addressLocality": "Brampton",
-        "addressRegion": "ON",
-        "addressCountry": "CA"
-      },
+      "address": [
+        {
+          "@type": "PostalAddress",
+          "addressLocality": "Brampton",
+          "addressRegion": "ON",
+          "addressCountry": "CA"
+        },
+        {
+          "@type": "PostalAddress",
+          "addressLocality": "Mississauga",
+          "addressRegion": "ON",
+          "addressCountry": "CA"
+        },
+        {
+          "@type": "PostalAddress",
+          "addressLocality": "Caledon",
+          "addressRegion": "ON",
+          "addressCountry": "CA"
+        }
+      ],
       "areaServed": {
         "@type": "AdministrativeArea",
         "name": "Region of Peel"
@@ -98,7 +113,7 @@ export default function SEO({ title, description, url, image, keywords }) {
       document.head.appendChild(script);
     }
     script.textContent = JSON.stringify(schemaData);
-    
+
   }, [title, description, url, image, keywords]);
 
   return null;
