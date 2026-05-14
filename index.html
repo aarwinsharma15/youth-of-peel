@@ -5,25 +5,25 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="theme-color" content="#d92d2d" />
-    
+
     <!-- SEO Foundation -->
     <title>Youth of Peel | Empowering Youth in the Peel Region</title>
     <meta name="title" content="Youth of Peel | Empowering Youth in the Peel Region" />
     <meta name="description" content="Youth of Peel is a youth-led organization empowering young people across Brampton, Mississauga, and Caledon through advocacy, mentorship, and community action in the Peel Region." />
-    <meta name="keywords" content="Youth of Peel, youth organization Peel Region, youth programs Brampton, youth services Mississauga, youth organization Caledon, youth advocacy Ontario, youth leadership Peel, volunteer hours Peel Region" />
+    <meta name="keywords" content="Youth of Peel, YPR, youth organization Peel Region, youth programs Brampton, youth services Mississauga, youth organization Caledon, youth advocacy Ontario, youth leadership Peel, volunteer hours Peel Region" />
     <meta name="author" content="Youth of Peel" />
     <meta name="robots" content="index, follow" />
     <meta name="language" content="English" />
     <meta name="geo.region" content="CA-ON" />
-    <meta name="geo.placename" content="Brampton" />
+    <meta name="geo.placename" content="Brampton, Mississauga, Caledon" />
     <link rel="canonical" href="https://youthofpeel.ca/" />
-    
-    <!-- Open Graph / Facebook / WhatsApp -->
+
+    <!-- Open Graph -->
     <meta property="og:type" content="website" />
     <meta property="og:url" content="https://youthofpeel.ca/" />
-    <meta property="og:title" content="Youth of Peel" />
+    <meta property="og:title" content="Youth of Peel | Empowering Youth in the Peel Region" />
     <meta property="og:description" content="Youth of Peel is a youth-led organization empowering young people across Brampton, Mississauga, and Caledon through advocacy, mentorship, and community action." />
-    <meta property="og:image" content="https://youthofpeel.ca/og-image.jpg" />
+    <meta property="og:image" content="https://youthofpeel.ca/og-preview.png" />
     <meta property="og:image:width" content="1200" />
     <meta property="og:image:height" content="630" />
     <meta property="og:image:alt" content="Youth of Peel — Youth-Led. Community-First. Action-Oriented." />
@@ -35,33 +35,52 @@
     <meta name="twitter:url" content="https://youthofpeel.ca/" />
     <meta name="twitter:title" content="Youth of Peel | Empowering Youth in the Peel Region" />
     <meta name="twitter:description" content="A youth-led organization unifying and empowering young people across Brampton, Mississauga, and Caledon. Join the movement." />
-    <meta name="twitter:image" content="https://youthofpeel.ca/og-image.jpg" />
+    <meta name="twitter:image" content="https://youthofpeel.ca/og-preview.png" />
 
-    <!-- Favicon & Manifest -->
+    <!-- Favicon — browser tab + Google crawler -->
     <link rel="icon" href="/favicon.ico" sizes="any" />
     <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
     <link rel="icon" href="/favicon-48x48.png" type="image/png" sizes="48x48" />
     <link rel="icon" href="/favicon-32x32.png" type="image/png" sizes="32x32" />
     <link rel="icon" href="/favicon-16x16.png" type="image/png" sizes="16x16" />
-    <link rel="apple-touch-icon" href="/favicon-192x192.png" type="image/png" />
+    <link rel="apple-touch-icon" href="/favicon-192x192.png" sizes="180x180" />
     <link rel="manifest" href="/manifest.json" />
 
-    <!-- Structured Data (JSON-LD) — Google Business Profile Association -->
+    <!-- JSON-LD Structured Data -->
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
-      "@type": "Organization",
+      "@type": "NonprofitOrganization",
       "name": "Youth of Peel",
+      "alternateName": ["YPR", "Youth of Peel", "Peel Youth", "Youth of Peel Region"],
       "url": "https://youthofpeel.ca",
-      "logo": "https://youthofpeel.ca/logo.png",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://youthofpeel.ca/logo.png"
+      },
+      "image": "https://youthofpeel.ca/og-preview.png",
       "description": "Youth of Peel is a youth-led organization dedicated to unifying young people across Brampton, Mississauga, and Caledon, closing the opportunity gap through advocacy, placements, mentorship, and community action in the Peel Region.",
       "foundingDate": "2024",
-      "address": {
-        "@type": "PostalAddress",
-        "addressLocality": "Brampton",
-        "addressRegion": "ON",
-        "addressCountry": "CA"
-      },
+      "address": [
+        {
+          "@type": "PostalAddress",
+          "addressLocality": "Brampton",
+          "addressRegion": "ON",
+          "addressCountry": "CA"
+        },
+        {
+          "@type": "PostalAddress",
+          "addressLocality": "Mississauga",
+          "addressRegion": "ON",
+          "addressCountry": "CA"
+        },
+        {
+          "@type": "PostalAddress",
+          "addressLocality": "Caledon",
+          "addressRegion": "ON",
+          "addressCountry": "CA"
+        }
+      ],
       "areaServed": {
         "@type": "AdministrativeArea",
         "name": "Region of Peel"
@@ -75,7 +94,7 @@
       ]
     }
     </script>
-  </head>
+</head>
   <body class="antialiased">
   <div id="root"></div>
   <script type="module" src="/src/main.jsx"></script>
