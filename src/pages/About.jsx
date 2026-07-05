@@ -3,8 +3,9 @@ import { supabase } from '@/api/supabaseClient';
 import { useQuery } from '@tanstack/react-query';
 import SectionReveal from '../components/SectionReveal';
 import { Link } from 'react-router-dom';
-import { ArrowRight } from 'lucide-react';
+import { ArrowRight, Mail, Phone } from 'lucide-react';
 import SEO from '../components/SEO';
+import founderImg from '../assets/founder-aarwin-sharma.png';
 
 // Real stock photo — diverse youth group
 const ABOUT_IMAGE = 'https://images.unsplash.com/photo-1529156069898-49953e39b3ac?w=1400&auto=format&fit=crop&q=80';
@@ -40,9 +41,10 @@ export default function About() {
   return (
     <div className="min-h-screen bg-parchment">
       <SEO 
-        title="About Us" 
-        description="Learn about Youth of Peel, a youth-led organization closing the opportunity gap in the Peel Region. Discover our story, core values, and the team driving change in Brampton, Mississauga, and Caledon." 
-        url="/about" 
+        title="About Us — Aarwin Sharma, Executive Director & Founder" 
+        description="Meet Aarwin Sharma, Executive Director and Founder of Youth of Peel. Learn about the youth-led organization closing the opportunity gap across Brampton, Mississauga, and Caledon in the Peel Region. Founded by Aarwin Sharma in 2024." 
+        url="/about"
+        keywords="Aarwin Sharma, Aarwin Sharma Youth of Peel, Aarwin Sharma Executive Director, Aarwin Sharma Founder, Youth of Peel founder, Youth of Peel about, youth organization Peel Region, youth leadership Brampton, Aarwin Sharma Brampton, Aarwin Sharma Peel Region, Aarwin Sharma Ontario"
       />
       {/* Hero */}
       <section className="relative pt-32 pb-24 bg-ink overflow-hidden">
@@ -58,9 +60,85 @@ export default function About() {
               ABOUT US
             </h1>
             <p className="text-white/50 font-body text-base md:text-lg max-w-2xl leading-relaxed">
-              Founded for youth, by youth.
+              <strong className="text-white/80">Run by youth, for youth.</strong>
             </p>
           </SectionReveal>
+        </div>
+      </section>
+
+      {/* Founder Section */}
+      <section className="py-20 md:py-28 bg-parchment" id="founder">
+        <div className="max-w-6xl mx-auto px-4 sm:px-8 lg:px-16">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-start">
+            {/* Founder Image */}
+            <SectionReveal>
+              <div className="relative">
+                <div className="absolute -left-3 top-0 bottom-0 w-1.5 bg-crimson" />
+                <div className="aspect-[3/4] overflow-hidden bg-ink/5 shadow-2xl">
+                  <img 
+                    src={founderImg} 
+                    alt="Aarwin Sharma — Executive Director and Founder of Youth of Peel" 
+                    className="w-full h-full object-cover object-top"
+                  />
+                </div>
+                <div className="absolute -bottom-4 -right-4 bg-crimson px-6 py-3">
+                  <p className="font-heading font-bold text-white text-xs uppercase tracking-widest">Founder</p>
+                </div>
+              </div>
+            </SectionReveal>
+
+            {/* Founder Info */}
+            <SectionReveal delay={0.15}>
+              <div className="space-y-6">
+                <div>
+                  <div className="w-12 h-1 bg-crimson mb-6" />
+                  <p className="font-heading font-bold text-ember text-xs uppercase tracking-[0.3em] mb-3">Meet the Founder</p>
+                  <h2 className="font-display text-[clamp(2rem,5vw,3.5rem)] text-ink leading-none tracking-wide mb-2">
+                    AARWIN SHARMA
+                  </h2>
+                  <p className="font-heading font-bold text-crimson text-sm uppercase tracking-widest">
+                    Executive Director & Founder
+                  </p>
+                </div>
+
+                <div className="space-y-4 text-ink/60 font-body text-base leading-relaxed">
+                  <p>
+                    Aarwin Sharma founded Youth of Peel in 2024 with a clear mission: close the opportunity gap for young people in the Region of Peel. What began as a passionate vision quickly became one of the most active youth civic networks in Ontario.
+                  </p>
+                  <p>
+                    As Executive Director, Aarwin has led Youth of Peel to build a team of over 20 staff members, engage 100+ youth across Brampton, Mississauga, and Caledon, and establish a presence that spans every municipality in the region.
+                  </p>
+                  <p>
+                    Under Aarwin Sharma's leadership, Youth of Peel has appeared before the regional council, developed policy briefs, launched mentorship programs, and built real infrastructure for youth civic engagement — proving that when young people are given the space and structure to lead, they deliver.
+                  </p>
+                  <p className="font-heading font-bold text-ink text-lg">
+                    "We are the bridge between youth passion and civic action. And we're just getting started."
+                  </p>
+                  <p className="text-ink/40 font-heading text-sm">— Aarwin Sharma, Founder</p>
+                </div>
+
+                {/* Contact */}
+                <div className="border-t border-ink/10 pt-6 space-y-3">
+                  <div className="flex items-center gap-3">
+                    <div className="w-8 h-8 bg-crimson flex items-center justify-center flex-shrink-0">
+                      <Mail size={14} className="text-white" />
+                    </div>
+                    <a href="mailto:aarwin.sharma@youthofpeel.ca" className="text-ink/60 font-body text-sm hover:text-crimson transition-colors">
+                      aarwin.sharma@youthofpeel.ca
+                    </a>
+                  </div>
+                  <div className="flex items-center gap-3">
+                    <div className="w-8 h-8 bg-crimson flex items-center justify-center flex-shrink-0">
+                      <Phone size={14} className="text-white" />
+                    </div>
+                    <a href="tel:+12895361250" className="text-ink/60 font-body text-sm hover:text-crimson transition-colors">
+                      289-536-1250
+                    </a>
+                  </div>
+                </div>
+              </div>
+            </SectionReveal>
+          </div>
         </div>
       </section>
 
@@ -87,11 +165,35 @@ export default function About() {
             </div>
             <SectionReveal delay={0.15}>
               <div className="space-y-5 text-ink/60 font-body text-base leading-relaxed">
-                <p>Youth of Peel was founded in 2024 when a group of young people in the region realized that, despite their passion for civic engagement and their love for their community, there was no real infrastructure to support them. They saw a gap between youth's desire to lead and the opportunities that were available to make it happen.</p>
-                <p>What started as an informal conversation turned into a team that now boasts over 20 staff members and 100 actively engaged youth, and a major presence across every municipality in the Region of Peel.</p>
-                <p>We've appeared before the regional council, developed policy briefs, launched mentorship programs, and built one of the most active youth civic networks in Ontario.</p>
-                <p>In just two years, we've proven that when young people are given the space and structure to lead, they show up — and they deliver.</p>
-                <p className="font-heading font-bold text-ink text-lg">We are the bridge between youth passion and civic action. And we're just getting started.</p>
+                <script type="application/ld+json">
+                  {JSON.stringify({
+                    "@context": "https://schema.org",
+                    "@type": "Quotation",
+                    "text": "We are the bridge between youth passion and civic action. And we're just getting started.",
+                    "creator": {
+                      "@type": "Person",
+                      "name": "Aarwin Sharma",
+                      "jobTitle": "Executive Director and Founder",
+                      "worksFor": {
+                        "@type": "Organization",
+                        "name": "Youth of Peel"
+                      }
+                    }
+                  })}
+                </script>
+                <p>Youth of Peel was born out of frustration. When Aarwin Sharma and a small group of local youth started this organization in 2024, they faced immediate hardships: lack of funding, closed doors from established institutions, and the constant struggle of not being taken seriously because of their age. There was no real infrastructure to support young people who wanted to drive civic change.</p>
+                <p>But instead of backing down, they built their own table. What started as an informal conversation turned into a relentless push for change. They navigated the complex bureaucracy of local government, fighting for every inch of recognition, and slowly built a team that now boasts over 20 staff members and 100 actively engaged youth across every municipality in the Region of Peel.</p>
+                <p>Today, Youth of Peel has completely changed the lives of many youth in our community. Under the leadership of Executive Director Aarwin Sharma, we've delivered critical policy briefs to Queen's Park and local councillors, actively shaping the decisions that affect our future. We've provided countless youth with hands-on internship opportunities, equipped them with the real-world skills needed to secure meaningful employment, and helped our members successfully gain admission into top universities.</p>
+                <p>In just a short time, we've proven that when young people are given the space and structure to lead, they overcome any obstacle — and they deliver.</p>
+                <figure className="border-l-4 border-crimson pl-6 py-4 my-8 bg-white shadow-sm">
+                  <blockquote className="font-heading text-ink text-lg md:text-xl font-bold italic mb-3 leading-snug">
+                    "We are the bridge between youth passion and civic action. And we're just getting started."
+                  </blockquote>
+                  <figcaption className="text-crimson font-heading text-sm uppercase tracking-widest font-bold">
+                    — Aarwin Sharma
+                    <span className="block text-ink/50 text-xs tracking-normal mt-1 capitalize">Executive Director & Founder</span>
+                  </figcaption>
+                </figure>
               </div>
             </SectionReveal>
           </div>
@@ -140,6 +242,12 @@ export default function About() {
                     </div>
                     <p className="text-ink font-heading font-bold text-sm">{m.name}</p>
                     <p className="text-crimson text-xs font-body">{m.role}</p>
+                    {(m.email || m.phone) && (
+                      <div className="mt-1 space-y-0.5">
+                        {m.email && <p className="text-ink/40 text-xs font-body truncate">{m.email}</p>}
+                        {m.phone && <p className="text-ink/40 text-xs font-body">{m.phone}</p>}
+                      </div>
+                    )}
                   </div>
                 </SectionReveal>
               ))}

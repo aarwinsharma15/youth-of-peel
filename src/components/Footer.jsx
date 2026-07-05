@@ -32,7 +32,7 @@ const SOCIAL_LINKS = [
     ),
   },
   {
-    href: 'mailto:info.peelyouth@gmail.com',
+    href: 'mailto:youthofpeel@youthofpeel.ca',
     label: 'Email',
     icon: <Mail size={20} />,
   },
@@ -54,12 +54,12 @@ export default function Footer() {
   return (
     <footer className="bg-navy text-white">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-12">
+        <div className="grid grid-cols-1 md:grid-cols-4 gap-12">
           {/* Brand */}
-          <div>
+          <div className="md:col-span-1">
             <img 
               src={logoFull} 
-              alt="Youth of Peel Region" 
+              alt="Youth of Peel" 
               className="h-16 w-auto mb-6 opacity-90 hover:opacity-100 transition-opacity"
             />
             <p className="text-white/60 text-sm leading-relaxed max-w-xs">
@@ -95,12 +95,30 @@ export default function Footer() {
             </ul>
           </div>
 
+          {/* Legal */}
+          <div>
+            <h3 className="font-heading font-semibold text-sm uppercase tracking-widest text-white/40 mb-4">Legal</h3>
+            <ul className="space-y-3">
+              <li>
+                <Link to="/privacy-policy" className="text-white/70 hover:text-white text-sm transition-colors">Privacy Policy</Link>
+              </li>
+              <li>
+                <Link to="/terms-of-use" className="text-white/70 hover:text-white text-sm transition-colors">Terms of Use</Link>
+              </li>
+              <li>
+                <Link to="/accessibility" className="text-white/70 hover:text-white text-sm transition-colors">Accessibility</Link>
+              </li>
+            </ul>
+          </div>
+
           {/* Contact Info */}
           <div>
             <h3 className="font-heading font-semibold text-sm uppercase tracking-widest text-white/40 mb-4">Get in Touch</h3>
             <div className="space-y-3 text-sm text-white/70">
-              <a href="mailto:info.peelyouth@gmail.com" className="hover:text-white transition-colors">info.peelyouth@gmail.com</a>
-              <p>Region of Peel, Ontario</p>
+              <a href="tel:+12895361250" className="block hover:text-white transition-colors">289-536-1250</a>
+              <a href="mailto:youthofpeel@youthofpeel.ca" className="block hover:text-white transition-colors">youthofpeel@youthofpeel.ca</a>
+              <a href="mailto:info.peelyouth@gmail.com" className="block hover:text-white transition-colors">info.peelyouth@gmail.com</a>
+              <p className="pt-2">Region of Peel, Ontario</p>
             </div>
             <a
               href="https://docs.google.com/forms/d/e/1FAIpQLSdVgO7owVS8wreW0hUycVucNB8WpM2WEDb6Lk6Q78Hc24EGLw/viewform?usp=dialog"
@@ -116,7 +134,7 @@ export default function Footer() {
         {/* Bottom Bar */}
         <div className="mt-16 pt-8 border-t border-white/10 flex flex-col sm:flex-row justify-between items-center gap-4">
           <p className="text-white/40 text-xs">
-            © {new Date().getFullYear()} Youth of Peel Region. All rights reserved.
+            © {new Date().getFullYear()} Youth of Peel. All rights reserved.
           </p>
           <Link
             to="/admin"

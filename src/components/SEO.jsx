@@ -73,6 +73,12 @@ export default function SEO({ title, description, url, image, keywords }) {
       "image": metaImage,
       "description": desc,
       "foundingDate": "2024",
+      "founder": {
+        "@type": "Person",
+        "name": "Aarwin Sharma",
+        "jobTitle": "Executive Director and Founder",
+        "url": "https://youthofpeel.ca/about#founder"
+      },
       "address": [
         {
           "@type": "PostalAddress",
@@ -97,7 +103,16 @@ export default function SEO({ title, description, url, image, keywords }) {
         "@type": "AdministrativeArea",
         "name": "Region of Peel"
       },
-      "email": "info.peelyouth@gmail.com",
+      "telephone": "+1-289-536-1250",
+      "email": "youthofpeel@youthofpeel.ca",
+      "contactPoint": [
+        {
+          "@type": "ContactPoint",
+          "telephone": "+1-289-536-1250",
+          "contactType": "customer service",
+          "email": "info.peelyouth@gmail.com"
+        }
+      ],
       "sameAs": [
         "https://www.instagram.com/youthofpeelregion/",
         "https://www.linkedin.com/company/youthofpeel/",

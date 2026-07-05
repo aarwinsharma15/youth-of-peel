@@ -1,7 +1,7 @@
 // @ts-nocheck
 import React, { useState } from 'react';
 import { supabase } from '@/api/supabaseClient';
-import { Mail, MapPin, Send, CheckCircle } from 'lucide-react';
+import { Mail, MapPin, Send, CheckCircle, Phone } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Textarea } from '@/components/ui/textarea';
@@ -63,11 +63,25 @@ export default function Contact() {
                 <div className="space-y-4">
                   <div className="flex items-start gap-4">
                     <div className="w-10 h-10 bg-crimson flex items-center justify-center flex-shrink-0">
+                      <Phone size={16} className="text-white" />
+                    </div>
+                    <div>
+                      <p className="font-heading font-bold text-ink text-sm mb-0.5">Phone</p>
+                      <a href="tel:+12895361250" className="text-ink/50 font-body text-sm hover:text-crimson transition-colors block">
+                        289-536-1250
+                      </a>
+                    </div>
+                  </div>
+                  <div className="flex items-start gap-4">
+                    <div className="w-10 h-10 bg-crimson flex items-center justify-center flex-shrink-0">
                       <Mail size={16} className="text-white" />
                     </div>
                     <div>
                       <p className="font-heading font-bold text-ink text-sm mb-0.5">Email</p>
-                      <a href="mailto:info.peelyouth@gmail.com" className="text-ink/50 font-body text-sm hover:text-crimson transition-colors">
+                      <a href="mailto:youthofpeel@youthofpeel.ca" className="text-ink/50 font-body text-sm hover:text-crimson transition-colors block">
+                        youthofpeel@youthofpeel.ca
+                      </a>
+                      <a href="mailto:info.peelyouth@gmail.com" className="text-ink/50 font-body text-sm hover:text-crimson transition-colors block">
                         info.peelyouth@gmail.com
                       </a>
                     </div>

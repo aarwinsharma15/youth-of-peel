@@ -11,8 +11,7 @@ import { toast } from 'sonner';
 export default function AdminTeam() {
   const queryClient = useQueryClient();
   const [showForm, setShowForm] = useState(false);
-  const [editId, setEditId] = useState(null);
-  const [form, setForm] = useState({ name: '', role: '', bio: '', image_url: '', order: 0 });
+  const [form, setForm] = useState({ name: '', role: '', bio: '', image_url: '', order: 0, phone: '', email: '' });
 
   const { data: team } = useQuery({
     queryKey: ['team'],
@@ -50,11 +49,11 @@ export default function AdminTeam() {
     onSuccess: () => { queryClient.invalidateQueries({ queryKey: ['team'] }); toast.success('Member removed'); },
   });
 
-  const resetForm = () => { setShowForm(false); setEditId(null); setForm({ name: '', role: '', bio: '', image_url: '', order: 0 }); };
+  const resetForm = () => { setShowForm(false); setEditId(null); setForm({ name: '', role: '', bio: '', image_url: '', order: 0, phone: '', email: '' }); };
 
   const startEdit = (m) => {
     setEditId(m.id);
-    setForm({ name: m.name, role: m.role, bio: m.bio || '', image_url: m.image_url || '', order: m.order || 0 });
+    setForm({ name: m.name, role: m.role, bio: m.bio || '', image_url: m.image_url || '', order: m.order || 0, phone: m.phone || '', email: m.email || '' });
     setShowForm(true);
   };
 
@@ -92,6 +91,16 @@ export default function AdminTeam() {
             <div>
               <label className="text-white/60 text-xs block mb-1">Bio</label>
               <Textarea value={form.bio} onChange={(e) => setForm({ ...form, bio: e.target.value })} rows={2} className="bg-navy border-white/10 text-white" />
+            </div>
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+              <div>
+                <label className="text-white/60 text-xs block mb-1">Email</label>
+                <Input type="email" value={form.email} onChange={(e) => setForm({ ...form, email: e.target.value })} className="bg-navy border-white/10 text-white" />
+              </div>
+              <div>
+                <label className="text-white/60 text-xs block mb-1">Phone</label>
+                <Input type="tel" value={form.phone} onChange={(e) => setForm({ ...form, phone: e.target.value })} className="bg-navy border-white/10 text-white" />
+              </div>
             </div>
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
               <div>
